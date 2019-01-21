@@ -6,6 +6,6 @@ Installation instructions:
    - Clone the repository 
    - Run npm install
 
-Running the application 
-    - npm run dev # to run the dev(uncompiled typescript)
-    - npm run prod # (compiled typescript)
+Running the application:
+   - npm run dev # to run the dev(uncompiled typescript)
+   - npm run prod # (compiled typescript)
