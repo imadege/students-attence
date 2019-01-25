@@ -1,6 +1,5 @@
 import { User } from "../models/user";
 import * as bcrypt from 'bcrypt';
-
 export class UserService {
 
     async getUsers() {
@@ -8,9 +7,6 @@ export class UserService {
     
         return users;
     }
-    
-
-    
     
     async createUser(data) {
         const user =  new User(data)
