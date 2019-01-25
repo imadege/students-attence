@@ -30,11 +30,10 @@ class StudentController {
         new UserService()
             .createUser(req.body)
             .then(function(user){
-
+                res.json(user)
             })
             .catch(err => next(err))
     }
-
 
 
     /** 
