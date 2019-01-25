@@ -3,7 +3,6 @@ import { User } from '../models/user';
 import { UserService } from '../services/userservice';
 import * as _ from 'lodash'; 
 import HttpException from '../exceptions';
-
 class StudentController { 
 
     public router: Router;
@@ -27,12 +26,28 @@ class StudentController {
      * @param next 
      */
     public addStudent(req: Request, res: Response, next?: NextFunction) {
-        new UserService()
-            .createUser(req.body)
-            .then(function(user){
-                res.json(user)
-            })
-            .catch(err => next(err))
+        User.find({email: req.body.email, firstName: req.body.firstName, lastName: req.body.lastName}, function(err, user){
+            
+            console.log(user)
+            if(user.length > 0 ) {
+                next(new HttpException(400,"User with that name and email already exist"));
+            } else {
+
+                new UserService()
+                    .createUser(req.body)
+                    .then(function(user){
+                        res.json(user)
+                    })
+                    .catch(err => next(err))
+            
+            }
+            
+            if (err) {
+                new HttpException(400, err);
+            }
+            
+        })
+        
     }
 
 
