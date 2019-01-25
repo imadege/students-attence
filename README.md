@@ -2,7 +2,7 @@
 Keeps track of students attendace per class 
 
 Installation instructions:
-   - Requirements:  NodeJs minimum 8.0
+   - Requirements:  NodeJs minimum 8.0, MongoDB minimum 5.0
    - Clone the repository 
    - Run npm install
 
