@@ -20,12 +20,12 @@ export class UserService {
     }
 
     async getUserById(id:string) {
-        const user  = await User.findOne({id: id})
+        const user  = await User.findOne({_id: id})
         return user
     }
 
     async updateUser(id:string, data: any) {
-        const user  = await User.update({id: id},data)
+        const user  = await User.update({_id: id},data)
         return user
     }
 }

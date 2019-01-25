@@ -63,6 +63,12 @@ class StudentController {
 
     }
 
+    public getStudent(req: Request,res: Response, next: NextFunction) {
+           new UserService()
+             .getUserById(req.params.id)
+             .then(user => res.json(user))
+             .catch(err => next(err));
+    }
 
 }
 
