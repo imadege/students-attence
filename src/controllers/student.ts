@@ -1,6 +1,8 @@
 import { Router, Request, Response, NextFunction} from "express"; 
 import { User } from '../models/user';
 import { UserService } from '../services/userservice';
+import * as _ from 'lodash'; 
+import HttpException from '../exceptions';
 
 class StudentController { 
 
@@ -15,7 +17,7 @@ class StudentController {
            new UserService()
                     .getUsers()
                     .then(users => res.json(users))
-                    .catch(err => next(err))
+                    .catch(err => next(new HttpException(400,err)))
     }
     
     /**
@@ -27,11 +29,13 @@ class StudentController {
     public addStudent(req: Request, res: Response, next?: NextFunction) {
         new UserService()
             .createUser(req.body)
-            .then(user => res.json(user))
+            .then(function(user){
+
+            })
             .catch(err => next(err))
     }
 
-    
+
 
     /** 
      * Update students details 
@@ -49,3 +53,4 @@ class StudentController {
 }
 
 export default new StudentController();
+

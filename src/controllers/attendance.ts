@@ -29,7 +29,8 @@ class AttendanceController {
      */
     public addAttendace(req: Request, res: Response, next?: NextFunction) {
         Attendance.find({student: req.body.student, date: req.body.date}, function(err, attendance){
-           if(attendance.length == 0 ){
+           
+            if(attendance.length == 0 ){
                 new AttendanceService()
                 .addAttendance(req.body)
                 .then(attendace => res.json(attendace))
@@ -43,6 +44,7 @@ class AttendanceController {
         });
         
     }
+    
 
 
 

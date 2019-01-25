@@ -11,4 +11,5 @@ routes.post('/students', (req, res, next) => student.addStudent(req,res,next));
 routes.get('/attendances', (req, res, next) => attendance.getAttendants(req,res,next));
 routes.post('/attendances', (req, res, next)=> attendance.addAttendace(req, res, next));
 routes.put('/students/:id',(req,res,next) =>student.updateStudent(req, res, next))
+
 export default routes;

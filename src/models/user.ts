@@ -29,7 +29,7 @@ const UserSchema: Schema = new Schema({
     lastName: { type: String, required: true},
     level: String,
     createdAt: { type: Date, default: Date.now},
-    password: { type:String, required: true }
+    password: { type:String, required: true, select: false }
 })
 
 /**
