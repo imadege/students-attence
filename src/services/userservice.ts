@@ -20,8 +20,8 @@ export class UserService {
         return user
     }
 
-    async updateUser(id:string, data: any) {
-        const user  = await User.update({_id: id},data)
+    async updateUser(id:string, data: {}) {
+        const user  = await User.findByIdAndUpdate({_id: id}, { $set: { ...data }}, { new: true });
         return user
     }
 }
