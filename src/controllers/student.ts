@@ -62,7 +62,10 @@ class StudentController {
             .catch(err => next(err))
 
     }
-
+    
+    /***
+     * get student
+     */
     public getStudent(req: Request,res: Response, next: NextFunction) {
            new UserService()
              .getUserById(req.params.id)
