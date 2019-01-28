@@ -62,7 +62,7 @@ class StudentController {
             .catch(err => next(err))
 
     }
-    
+
     /***
      * get student
      */
@@ -73,7 +73,16 @@ class StudentController {
              .catch(err => next(err));
     }
 
+    /***
+     * get student
+     */
+    public deleteStudent(req: Request,res: Response, next: NextFunction) {
+        new UserService()
+          .deleteUser(req.params.id)
+          .then(user => res.json(user))
+          .catch(err => next(err));
+    }
+
 }
 
 export default new StudentController();
-

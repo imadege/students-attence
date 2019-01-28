@@ -8,7 +8,10 @@ export class AttendanceService {
     async getAttendance( filters?: IAttendance) : Promise<IAttendance[]> {
       return await Attendance.find(filters).populate('student'); 
     }
-    /** Add new attendance to the database */
+
+    /**
+     * Add new attendance to the database
+     */
 
     async addAttendance(data:IAttendance):Promise<IAttendance> {
         const attendance = new Attendance(data)
@@ -17,3 +20,4 @@ export class AttendanceService {
         return attendance;
     }
 }
+

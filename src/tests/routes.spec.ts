@@ -3,7 +3,6 @@ import chaiHttp = require('chai-http');
 import { routes } from "../routes"
 import 'mocha';
 import app from  "../server";
-import * as supertest from "superagent";
 
 chai.use(chaiHttp)
 const { expect } = chai;
@@ -17,11 +16,9 @@ describe('Test API rote availability', () => {
             expect(res).to.have.status(200)
             done();
           });
-          
     })
 
 })
-
 
 describe('API Route testing ', () => {
 
@@ -32,7 +29,6 @@ describe('API Route testing ', () => {
           expect(res).to.have.status(200)
           done();
         });
-        
   })
 
 })
@@ -46,7 +42,6 @@ describe('Students api', () => {
           expect(res).to.have.status(200)
           done();
         });
-        
   })
 
 })
@@ -61,7 +56,6 @@ describe('Attendance Api ', () => {
           expect(res).to.have.status(200)
           done();
         });
-        
   })
 
 })

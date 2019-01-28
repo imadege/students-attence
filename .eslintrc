@@ -5,7 +5,10 @@
     ],
     "rules": {
         "typescript/rule-name": "error",
-        "trailing-comma": [ false ]
+        "trailing-comma": [ false ],
+        "no-trailing-spaces": true,
+        "lines-between-class-members": ["always"],
+        "exceptAfterSingleLine": true
     }
 }
 
