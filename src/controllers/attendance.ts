@@ -44,11 +44,14 @@ class AttendanceController {
 
     }
 
+    public attendancePerStudent(req: Request, res: Response, next?: NextFunction) {
+        const studentId = req.params.id;
+        Attendance.find({student: studentId}, function(err, attendancies){
+            if (err)  next(new HttpException(400, "Attendaces for that student do not exist"))
 
-
-
-
-
+            res.json(attendancies)
+        })
+    }
 }
 
 export default new AttendanceController();
