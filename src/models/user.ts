@@ -3,10 +3,8 @@ import { mongoose } from '../config/database';
 import * as bcrypt from "bcrypt";
 
 const SALT_WORK_FACTOR = 10;
-/**
- * Model Interface for user
- */
-interface IUserModel extends Document {
+
+export interface IUserDocument {
     email?: string;
     firstName?: string;
     lastName?: string;
@@ -14,9 +12,13 @@ interface IUserModel extends Document {
     createdAt?: Date;
     attendanceStatus?: string;
     remarksAttendace?: string; 
-
-    comparePassword(candidatePassword: string): Promise<boolean>;
-
+}
+/**
+ * Model Interface for user
+ */
+export interface IUserModel extends IUserDocument, Document {
+    comparePassword?(candidatePassword: string): Promise<boolean>;
+    
 }
 
 /**
@@ -68,6 +70,6 @@ UserSchema.methods.comparePassword = function (candidatePassword: string): Promi
     });
 };
 
-const User: Model<IUserModel> = mongoose.model<IUserModel>("User", UserSchema)
+export const User: Model<IUserModel> = mongoose.model<IUserModel>("User", UserSchema)
 
-export { User }
+

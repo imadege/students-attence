@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "NODE_ENV=development ts-node-dev ./src/server.ts ",
-    "start": "nodemon  ./dist/server.js",
+    "dev": "./scripts/setup.sh && ts-node-dev ./src/server.ts ",
+    "start": "NODE_ENV=production nodemon  ./dist/server.js",
     "prod": "npm run build && npm run start",
-    "test": "mocha -r ts-node/register src/**/*.spec.ts"
+    "test": "NODE_ENV=test mocha -r ts-node/register src/**/*.spec.ts"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +20,7 @@
     "bcrypt": "^3.0.3",
     "body-parser": "^1.18.3",
     "config": "^3.0.1",
+    "custom-env": "^1.0.0",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
@@ -39,6 +40,7 @@
     "eslint-plugin-typescript": "^0.14.0",
     "mocha": "^5.2.0",
     "mockgoose": "^8.0.1",
+    "node-env-run": "^3.0.2",
     "supertest": "^3.4.2",
     "typescript-eslint-parser": "^21.0.2"
   }

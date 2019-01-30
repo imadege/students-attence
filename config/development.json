@@ -1,0 +1,8 @@
+{
+    "NODE_ENV":"development",
+    "PORT": 3100,
+    "MONGO": {
+        "URI":"mongodb://127.0.0.1:27017/student"
+    }
+}
+

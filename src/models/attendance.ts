@@ -2,10 +2,13 @@ import { Document, Schema, Model, model} from "mongoose";
 import { mongoose } from '../config/database';
 
 
-export interface IAttendance extends Document {
+export interface IAttendaceDocument {
     student: Schema.Types.ObjectId;
-    date: Date;
+    date: string;
     remarks?: string;
+    status?: string;
+}
+export interface IAttendance extends IAttendaceDocument, Document {
 
 }
 

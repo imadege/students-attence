@@ -1,5 +1,4 @@
-import { Attendance, IAttendance } from '../models/attendance';
-
+import { Attendance, IAttendance,IAttendaceDocument } from '../models/attendance';
 
 export class AttendanceService {
 
@@ -13,7 +12,7 @@ export class AttendanceService {
      * Add new attendance to the database
      */
 
-    async addAttendance(data:IAttendance):Promise<IAttendance> {
+    async addAttendance(data:IAttendaceDocument):Promise<IAttendaceDocument> {
         const attendance = new Attendance(data)
         await attendance.save()
 

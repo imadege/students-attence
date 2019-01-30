@@ -1,7 +1,6 @@
 import * as mongoose from "mongoose";
+import *  as config from  "config";
 
-require('dotenv').config()
-
-mongoose.connect(process.env.DATABASE, { useNewUrlParser: true})
+mongoose.connect(config.get('MONGO.URI'), { useNewUrlParser: true})
 
 export {  mongoose }
