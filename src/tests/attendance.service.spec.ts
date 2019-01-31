@@ -6,6 +6,7 @@ import { AttendanceService } from '../services/attendanceservice';
 import { IAttendance, Attendance } from '../models/attendance';
 import { UserData, AttendaceData } from '../utils/fixtures';
 import student from 'controllers/student';
+import HttpException from '../exceptions';
 
 let service: UserService;
 
@@ -13,7 +14,7 @@ let attendanceService: AttendanceService;
 
 const { expect } = chai;
 
-describe('Attendace  Service', () => {
+describe('Attendance  Service', () => {
     let user;
     let attendace: IAttendance;
     describe('Get', () => {
@@ -28,7 +29,7 @@ describe('Attendace  Service', () => {
 
         it ('Attendaces', async()=>{
             await attendanceService
-                    .getAttendance()
+                    .getAddentants()
                     .then(function(attendacies){
                         expect(attendacies).to.be.an('array')
                     })
@@ -49,11 +50,13 @@ describe('Attendace  Service', () => {
         })
 
         it ('Attendaces', async()=>{
-            console.log(user)
-           await attendanceService
-                    .addAttendance({"student":user._id, "date":"2019-01-30", "status":"ABSENT"})
-                    .then(function(attendacies){
-                        expect(attendacies).to.have.property('student').equal(user._id)
+            await attendanceService
+                    .addAttendance({"student":user._id, "date":"2019-01-30", "status":"absent"})
+                    .then(function(response){
+                        expect(response).to.have.property('student').equal(user._id)
+                    }).catch(function(err){
+                        console.log(err)
+                        new HttpException(400, err)
                     })
         })
 

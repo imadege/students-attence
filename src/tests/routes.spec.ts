@@ -3,7 +3,7 @@ import chaiHttp = require('chai-http');
 import { routes } from "../routes"
 import 'mocha';
 import app from  "../server";
-import { UserData, AttendaceData } from '../utils/fixtures';
+import { UserData } from '../utils/fixtures';
 import { UserService } from '../services/userservice';
 import { AttendanceService } from '../services/attendanceservice';
 import { IUserDocument, User, IUserModel } from '../models/user';
@@ -13,7 +13,7 @@ import { IAttendaceDocument, Attendance } from '../models/attendance';
 chai.use(chaiHttp)
 const { expect } = chai;
 
-describe('Test API rote availability', () => {
+describe('Test API route availability', () => {
     let user: IUserDocument;
     let attendace: IAttendaceDocument;
     let userService: UserService;
@@ -106,7 +106,7 @@ describe('Test API rote availability', () => {
         await attendaceService.addAttendance({
                   "student": newUser._id,
                   "date":"2019-01-30",
-                  "status": "PRESENT",
+                  "status": "present",
               })
       })
 
@@ -126,7 +126,7 @@ describe('Test API rote availability', () => {
         .send({
           "student": newUser._id,
           "date":"2019-01-30",
-          "status": "PRESENT",
+          "status": "present",
         })
         .end(function(err, res){
           expect(res.body).to.have.property('status')

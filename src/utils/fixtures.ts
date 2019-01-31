@@ -8,4 +8,4 @@ export const UserData: IUserDocument = {"email":"imadege1990@gmail.com",
                            }
 export const UserUpdateData: IUserDocument = {"firstName":"John", "lastName":"Doe"}
 
-export const AttendaceData  = { "date":"2019-30-01", "status":"ABSENT" }
+export const AttendaceData  = { "date":"2019-30-01", "status":"absent" }

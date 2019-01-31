@@ -8,17 +8,15 @@ export interface IUserDocument {
     email?: string;
     firstName?: string;
     lastName?: string;
-    password?: string; 
+    password?: string;
     createdAt?: Date;
-    attendanceStatus?: string;
-    remarksAttendace?: string; 
+    remarksAttendace?: string;
 }
 /**
  * Model Interface for user
  */
 export interface IUserModel extends IUserDocument, Document {
     comparePassword?(candidatePassword: string): Promise<boolean>;
-    
 }
 
 /**
@@ -45,8 +43,7 @@ UserSchema.pre<IUserModel>('save', function(next) {
         this.password = hash;
         next();
     });
-    
-   
+
 })
 
 UserSchema.pre<IUserModel>("update", function (next) {
@@ -57,7 +54,7 @@ UserSchema.pre<IUserModel>("update", function (next) {
     });
 });
 /**
- * Method used to validate password 
+ * Method used to validate password
  */
 
 UserSchema.methods.comparePassword = function (candidatePassword: string): Promise<boolean> {

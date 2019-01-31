@@ -4,7 +4,7 @@ export class AttendanceService {
 
     /** filters attendance  */
 
-    async getAttendance( filters?: IAttendance) : Promise<IAttendance[]> {
+    async getAddentants( filters?: IAttendance) : Promise<IAttendance[]> {
       return await Attendance.find(filters).populate('student'); 
     }
 
